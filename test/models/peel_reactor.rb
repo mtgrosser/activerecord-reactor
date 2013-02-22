@@ -1,4 +1,4 @@
-class PeelReactor < ActiveModel::Reactor
+class PeelReactor < ActiveRecord::Reactor
 
   class << self
     delegate :calls, to: :instance

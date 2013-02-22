@@ -1,7 +1,4 @@
-require 'active_model'
-require 'singleton'
-
-module ActiveModel
+module ActiveRecord
 
   class Reactor
 
@@ -10,7 +7,7 @@ module ActiveModel
       def self.included(base)
         base.extend ClassMethods
         base.class_attribute :reactor_callbacks
-        base.reactor_callbacks = []
+        base.reactor_callbacks = ActiveRecord::Base::CALLBACKS.dup
       end
 
       module ClassMethods
@@ -38,25 +35,6 @@ module ActiveModel
 
     end
 
-    include Singleton
-
-    class << self
-      def callbacks
-        (self.public_instance_methods - ActiveModel::Reactor.public_instance_methods).grep(/\A(before|around|after)_.+/)
-      end
-
-      def scrammed?
-        !!@scrammed
-      end
-
-      def scram(&block)
-        previously_scrammed = @scrammed
-        @scrammed = true
-        yield
-      ensure
-        @scrammed = previously_scrammed
-      end
-    end
   end
 
 end

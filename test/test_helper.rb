@@ -27,7 +27,7 @@ require 'test/unit'
 require 'debugger'
 
 require 'active_record'
-require 'activemodel-reactor/active_record'
+require 'activerecord-reactor'
 
 ActiveRecord::Base.mass_assignment_sanitizer = :strict
 ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')
