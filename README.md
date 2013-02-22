@@ -1,7 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/activerecord-reactor.png)](http://badge.fury.io/rb/activerecord-reactor) [![Code Climate](https://codeclimate.com/github/mtgrosser/activerecord-reactor.png)](https://codeclimate.com/github/mtgrosser/activerecord-reactor)
 
-ActiveRecord::Reactor - Controlled reactions on ActiveRecord callbacks
-======================================================================
+Reactor - Controlled reactions on ActiveRecord callbacks
+========================================================
 
 ActiveRecord Reactors provide a defined way to react on default or custom Active Record callbacks. You may think of them as Observers without the magic, and without the hassle.
 
