@@ -1,4 +1,4 @@
-activemodel-reactor
-===================
+activerecord-reactor
+====================
 
 Unobtrusive observers for Rails models
