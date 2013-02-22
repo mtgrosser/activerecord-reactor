@@ -7,9 +7,9 @@ require 'active_record/reactor/version'
 Gem::Specification.new do |s|
   s.name          = 'activerecord-reactor'
   s.version       = ActiveRecord::Reactor::VERSION
-  s.date          = '2013-02-22'
-  s.summary       = 'Unobtrusive observers for Rails models'
-  s.description   = ''
+  s.date          = '2013-02-23'
+  s.summary       = 'Controlled reactions on ActiveRecord callbacks'
+  s.description   = %{ActiveRecord Reactors provide a defined way to react on default or custom Active Record callbacks. Observers without the magic, and without the hassle.}
   s.authors       = ['Matthias Grosser']
   s.email         = 'mtgrosser@gmx.net'
   s.require_path  = 'lib'
