@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email         = 'mtgrosser@gmx.net'
   s.require_path  = 'lib'
   s.files         = Dir['{lib}/**/*.rb', 'MIT-LICENSE', 'README.md', 'CHANGELOG', 'Rakefile']
-  s.homepage      = 'http://rubygems.org/gems/activerecord-reactor'
+  s.homepage      = 'https://github.com/mtgrosser/activerecord-reactor'
 
   s.test_files = Dir["test/**/*"]
 
