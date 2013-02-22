@@ -1,0 +1,3 @@
+class Cherry < Fruit
+
+end
