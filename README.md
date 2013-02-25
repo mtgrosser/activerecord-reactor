@@ -38,7 +38,6 @@ end
 You can also use custom model callbacks:
 
 ```ruby
-
 class Tidy < ActiveRecord::Reactor
   def before_peel(record)
     record.wash!
@@ -69,3 +68,12 @@ class Banana < Fruit
 end
 ```
 
+Finally, you can temporarily shutdown any reactions on a reactor:
+
+```ruby
+class Apple < Fruit; end
+
+YummyReactor.scram do
+  Apple.create! # hide this one from YummyReactor
+end
+```

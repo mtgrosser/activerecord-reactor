@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activerecord-reactor (1.0.0)
+    activerecord-reactor (1.0.1)
       activerecord (~> 3.2.3)
 
 GEM

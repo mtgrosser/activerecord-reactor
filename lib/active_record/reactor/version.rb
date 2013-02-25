@@ -1,5 +1,5 @@
 module ActiveRecord
   class Reactor
-    VERSION = '1.0.1'
+    VERSION = '1.0.2'
   end
 end

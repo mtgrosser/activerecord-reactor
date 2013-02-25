@@ -9,6 +9,14 @@ class ReactorTest < ActiveSupport::TestCase
     PeelReactor.calls.clear
   end
 
+  test 'Callbacks are defined' do
+    klass = Class.new(ActiveRecord::Base)
+    assert_equal ActiveRecord::Base::CALLBACKS, klass.reactor_callbacks
+    assert_equal ActiveRecord::Base::CALLBACKS + [:before_peel, :after_peel], Fruit.reactor_callbacks
+    assert_equal ActiveRecord::Base::CALLBACKS + [:before_peel, :after_peel, :before_foo], Cherry.reactor_callbacks
+    assert_equal ActiveRecord::Base::CALLBACKS + [:before_peel, :after_peel], Fruit.reactor_callbacks
+  end
+
   test 'Callbacks are invoked' do
     b = Banana.create(color: 'blue')
     b.peel!
@@ -25,5 +33,5 @@ class ReactorTest < ActiveSupport::TestCase
     end
     assert_empty FruitReactor.calls
     assert_equal false, FruitReactor.scrammed?
-  end  
+  end
 end
