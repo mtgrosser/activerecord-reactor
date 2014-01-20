@@ -1,7 +1,4 @@
 class Fruit < ActiveRecord::Base
-
-  attr_accessible :color
-
   define_reactor_callbacks :peel
 
   reactor FruitReactor

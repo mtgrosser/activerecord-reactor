@@ -24,12 +24,10 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
 require 'test/unit'
-require 'debugger'
 
 require 'active_record'
 require 'activerecord-reactor'
 
-ActiveRecord::Base.mass_assignment_sanitizer = :strict
 ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')
 
 require File.expand_path('../schema', __FILE__)
