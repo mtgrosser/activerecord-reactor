@@ -23,7 +23,8 @@ end
 require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
-require 'test/unit'
+require 'active_support/testing/autorun'
+require 'active_support/test_case'
 
 require 'active_record'
 require 'activerecord-reactor'
