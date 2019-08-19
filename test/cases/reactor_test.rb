@@ -26,10 +26,32 @@ class ReactorTest < ActiveSupport::TestCase
 
   test 'Scrammed reactors do not react' do
     FruitReactor.scram do
-      b = Banana.create(color: 'blue')
-      c = Cherry.create(color: 'red')
+      Banana.create(color: 'blue')
+      Cherry.create(color: 'red')
     end
     assert_empty FruitReactor.calls
+    assert_equal false, FruitReactor.scrammed?
+  end
+  
+  test 'Subclasses have their own mutex' do
+    fruit_mutex = FruitReactor.send(:mutex)
+    peel_mutex = PeelReactor.send(:mutex)
+    assert_kind_of Mutex, fruit_mutex
+    assert_kind_of Mutex, peel_mutex
+    assert_not_equal fruit_mutex.object_id, peel_mutex.object_id
+  end
+  
+  test 'Threading' do
+    threads = 5.times.collect do
+      Thread.new do
+        100_000.times do
+          FruitReactor.scram do
+            #
+          end
+        end
+      end
+    end
+    threads.each(&:join)
     assert_equal false, FruitReactor.scrammed?
   end
 end

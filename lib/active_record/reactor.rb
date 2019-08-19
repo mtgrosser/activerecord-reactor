@@ -45,6 +45,7 @@ module ActiveRecord
     include Singleton
 
     class << self
+      
       def callbacks # :nodoc:
         (self.public_instance_methods - ActiveRecord::Reactor.public_instance_methods).grep(/\A(before|around|after)_.+/)
       end
@@ -55,12 +56,22 @@ module ActiveRecord
 
       # Stops all reactions while inside the (required) block.
       def scram(&block)
-        previously_scrammed = @scrammed
-        @scrammed = true
+        previously_scrammed = nil
+        mutex.synchronize do
+          previously_scrammed = @scrammed
+          @scrammed = true
+        end
         yield
       ensure
-        @scrammed = previously_scrammed
+        mutex.synchronize { @scrammed = previously_scrammed }
       end
+      
+      private
+      
+      def mutex
+        @mutex ||= Mutex.new
+      end
+      
     end
   end
 
