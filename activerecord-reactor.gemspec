@@ -7,7 +7,7 @@ require 'active_record/reactor/version'
 Gem::Specification.new do |s|
   s.name          = 'activerecord-reactor'
   s.version       = ActiveRecord::Reactor::VERSION
-  s.date          = '2019-08-19'
+  s.date          = '2023-05-16'
   s.summary       = 'Controlled reactions on ActiveRecord callbacks'
   s.description   = %{ActiveRecord Reactors provide a defined way to react on default or custom Active Record callbacks. Observers without the magic, and without the hassle.}
   s.authors       = ['Matthias Grosser']
@@ -18,9 +18,7 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir["test/**/*"]
 
-  s.required_ruby_version = '>= 2.0.0'
-
-  s.add_runtime_dependency 'activerecord', '~> 6.0.0'
+  s.add_runtime_dependency 'activerecord', '~> 7.0.0'
 
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'simplecov'
