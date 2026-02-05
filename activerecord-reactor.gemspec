@@ -7,7 +7,7 @@ require 'active_record/reactor/version'
 Gem::Specification.new do |s|
   s.name          = 'activerecord-reactor'
   s.version       = ActiveRecord::Reactor::VERSION
-  s.date          = '2024-08-16'
+  s.date          = '2026-02-06'
   s.summary       = 'Controlled reactions on ActiveRecord callbacks'
   s.description   = %{ActiveRecord Reactors provide a defined way to react on default or custom Active Record callbacks. Observers without the magic, and without the hassle.}
   s.authors       = ['Matthias Grosser']
@@ -15,8 +15,10 @@ Gem::Specification.new do |s|
   s.require_path  = 'lib'
   s.files         = Dir['{lib}/**/*.rb', 'MIT-LICENSE', 'README.md', 'CHANGELOG', 'Rakefile']
   s.homepage      = 'https://github.com/mtgrosser/activerecord-reactor'
+  
+  s.required_ruby_version = '>= 3.2'
 
   s.test_files = Dir["test/**/*"]
 
-  s.add_runtime_dependency 'activerecord', '~> 7.2'
+  s.add_runtime_dependency 'activerecord', '~> 8.1'
 end

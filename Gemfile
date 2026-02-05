@@ -4,4 +4,4 @@ gemspec
 
 gem 'sqlite3'
 gem 'rake'
-#gem 'debug'
+gem 'minitest', '~> 5.0'
